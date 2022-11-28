@@ -13,16 +13,17 @@ pool:
 
 steps:
 
-# - task: UsePythonVersion@0
-#   displayName: 'Install Python'
-#   inputs:
-#     versionSpec: '3.6'
-
 - script: pip install ansible #can pip install specific version
   displayName: 'Install Ansible'
 
 - script: ansible --version
   displayName: 'Check Ansible Version'
+
+- script: python3 -m pip install --user ansible-lint 
+  displayName: 'Install Ansible Lint'
+
+- script: ansible-lint --version 
+  displayName: 'Check Ansible Lint'
 
 # - script: pip install -r https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
 #   displayName: 'Install Azure modules needed'
