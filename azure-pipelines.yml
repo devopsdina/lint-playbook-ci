@@ -13,10 +13,10 @@ pool:
 
 steps:
 
-- task: UsePythonVersion@0
-  displayName: 'Install Python'
-  inputs:
-    versionSpec: '3.6'
+# - task: UsePythonVersion@0
+#   displayName: 'Install Python'
+#   inputs:
+#     versionSpec: '3.6'
 
 - script: pip install ansible #can pip install specific version
   displayName: 'Install Ansible'
