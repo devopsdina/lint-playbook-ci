@@ -25,6 +25,9 @@ steps:
 - script: ansible-lint --version 
   displayName: 'Check Ansible Lint'
 
+- script: ansible-lint . examples/*.yml 
+  displayName: 'Run Ansible Lint'
+
 # - script: pip install -r https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
 #   displayName: 'Install Azure modules needed'
 
