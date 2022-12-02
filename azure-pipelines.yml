@@ -1,0 +1,38 @@
+trigger:
+  branches:
+    include:
+      - '*'
+  # paths:
+  #   exclude:
+  #     - README.md
+
+name: $(BuildID)
+
+pool:
+  vmImage: 'ubuntu-22.04'
+
+steps:
+
+- script: pip install ansible #can pip install specific version
+  displayName: 'Install Ansible'
+
+- script: ansible --version
+  displayName: 'Check Ansible Version'
+
+- script: python3 -m pip install --user ansible-lint 
+  displayName: 'Install Ansible Lint'
+
+- script: ansible-lint --version 
+  displayName: 'Check Ansible Lint'
+
+- script: ansible-lint . examples/*.yml 
+  displayName: 'Run Ansible Lint'
+
+# - script: pip install -r https://raw.githubusercontent.com/ansible-collections/azure/dev/requirements-azure.txt
+#   displayName: 'Install Azure modules needed'
+
+# - script: ansible-galaxy collection install azure.azcollection
+#   displayName: 'Install Ansible Azure Collection'
+  
+# - script: ansible-playbook -i inv site.yml
+#   displayName: 'Run Ansible Playbook'
