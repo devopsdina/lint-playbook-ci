@@ -26,4 +26,9 @@ jobs:
       - name: 'Check Ansible Lint'
         shell: bash
         run: |
-          ansible-lint --version 
+          ansible-lint --version
+
+      - name: 'Run Ansible Lint'
+        shell: bash
+        run: |
+          ansible-lint . examples/*.yml
